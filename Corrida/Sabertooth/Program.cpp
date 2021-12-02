@@ -233,6 +233,7 @@ void Program::Run(Shader shader, GLFWwindow* window, GLuint VAO, GLuint VAOlight
 					model = glm::mat4(1.0f);
 					coreShader.UseTexture(group->getName());
 					glBindVertexArray(group->getVAO());
+					model = scale(model, glm::vec3(0.08f, 0.08f, 0.08f));
 					coreShader.setMatrix4fv("model", model);
 					glDrawArrays(GL_TRIANGLES, 0, group->getNumVertices());
 					glBindVertexArray(0);

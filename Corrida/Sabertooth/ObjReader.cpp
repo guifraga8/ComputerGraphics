@@ -4,6 +4,7 @@
 #include <sstream>
 
 using namespace std;
+float scale = 0.08f;
 
 Mesh* ObjReader::read(string filename)
 {
@@ -223,4 +224,34 @@ void ObjReader::textureMtl(Material* material, stringstream& sline) {
 	string texture;
 	sline >> texture;
 	material->setTexture(texture);
+}
+
+// coords
+vector<vec3*> ObjReader::readPoints(string filename)
+{
+	vector<vec3*> points;
+
+	ifstream arq(filename);
+
+	if (!arq) {
+		exit(EXIT_FAILURE);
+	}
+
+	while (!arq.eof()) {
+		string line;
+		getline(arq, line);
+
+		stringstream sline(line);
+
+		float x, y, z;
+		sline >> x >> y >> z;
+		x = x * scale;
+		y = y * scale;
+		z = z * scale;
+		points.push_back(new glm::vec3(x, y, z));
+	}
+
+	arq.close();
+
+	return points;
 }

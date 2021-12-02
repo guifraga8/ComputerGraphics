@@ -1,0 +1,41 @@
+﻿  Face.cpp
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Face.cpp(13,28): warning C4267: 'return': conversão de 'size_t' para 'int', possível perda de dados
+  Group.cpp
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Group.cpp(11,25): warning C4267: 'return': conversão de 'size_t' para 'int', possível perda de dados
+  Main.cpp
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Main.cpp(27,1): warning C4005: 'EXIT_FAILURE': redefinição de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdlib.h(49): message : consulte a definição anterior de 'EXIT_FAILURE'
+  Material.cpp
+  Mesh.cpp
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Mesh.cpp(28,28): warning C4267: 'return': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Mesh.cpp(34,27): warning C4267: 'return': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Mesh.cpp(40,28): warning C4267: 'return': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Mesh.cpp(45,26): warning C4267: 'return': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Mesh.cpp(50,29): warning C4267: 'return': conversão de 'size_t' para 'int', possível perda de dados
+  ObjReader.cpp
+  Program.cpp
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Program.cpp(194,22): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Program.cpp(325,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Program.cpp(365,20): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Program.cpp(384,11): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Program.cpp(385,11): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Program.cpp(389,16): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Program.cpp(390,16): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Program.cpp(391,10): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Program.cpp(392,10): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+  Shader.cpp
+  Texture.cpp
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Texture.cpp(13,13): warning C4101: 'height': variável local não referenciada
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Texture.cpp(13,6): warning C4101: 'width': variável local não referenciada
+C:\Users\User\Desktop\OpenGL-3DRace\Corrida\Sabertooth\Texture.cpp(14,17): warning C4101: 'image': variável local não referenciada
+  Gerando Código...
+  SOIL.lib(SOIL.obj) : MSIL .netmodule ou módulo compilado com /GL encontrado; reiniciando link com /LTCG; adicione /LTCG ao link da linha de comando para melhorar performance do vinculador
+LINK : warning LNK4075: ignorando '/INCREMENTAL' devido a especificação '/LTCG'
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflita com uso de outras bibliotecas; use /NODEFAULTLIB:library
+  Gerando código
+  Finalizada a geração de código
+SOIL.lib(SOIL.obj) : warning LNK4099: PDB 'vc110.pdb' não foi encontrado 'SOIL.lib(SOIL.obj)' ou no 'C:\Users\User\Desktop\OpenGL-3DRace\Corrida\x64\Debug\vc110.pdb'; vinculando objeto quando quando sem nenhuma informação de depuração
+SOIL.lib(stb_image_aug.obj) : warning LNK4099: PDB 'vc110.pdb' não foi encontrado 'SOIL.lib(stb_image_aug.obj)' ou no 'C:\Users\User\Desktop\OpenGL-3DRace\Corrida\x64\Debug\vc110.pdb'; vinculando objeto quando quando sem nenhuma informação de depuração
+SOIL.lib(image_helper.obj) : warning LNK4099: PDB 'vc110.pdb' não foi encontrado 'SOIL.lib(image_helper.obj)' ou no 'C:\Users\User\Desktop\OpenGL-3DRace\Corrida\x64\Debug\vc110.pdb'; vinculando objeto quando quando sem nenhuma informação de depuração
+SOIL.lib(image_DXT.obj) : warning LNK4099: PDB 'vc110.pdb' não foi encontrado 'SOIL.lib(image_DXT.obj)' ou no 'C:\Users\User\Desktop\OpenGL-3DRace\Corrida\x64\Debug\vc110.pdb'; vinculando objeto quando quando sem nenhuma informação de depuração
+  Sabertooth.vcxproj -> C:\Users\User\Desktop\OpenGL-3DRace\Corrida\x64\Debug\Sabertooth.exe

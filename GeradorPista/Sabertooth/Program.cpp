@@ -261,31 +261,16 @@ void bspline_curve() {
 	int size = points_array.size();
 
 	for (int i = 0; i < size + 3; i += 3) {
-		for (float t = 0; t < 1; t += 0.03f) {
-
+		for (float t = 0; t < 1; t += 0.03f) { // 33 variacoes da dsitancia
 			float t3 = pow(t, 3);
 			float t2 = pow(t, 2);
 
-			float x = calculate_bspline_curve(t, t3, t2,
-				points_array[(i + 0) % size],
-				points_array[(i + 3) % size],
-				points_array[(i + 6) % size],
-				points_array[(i + 9) % size]
-				);
-
-			float y = calculate_bspline_curve(t, t3, t2,
-				points_array[(i + 1) % size],
-				points_array[(i + 4) % size],
-				points_array[(i + 7) % size],
-				points_array[(i + 10) % size]
-				);
-
-			float z = calculate_bspline_curve(t, t3, t2,
-				points_array[(i + 2) % size],
-				points_array[(i + 5) % size],
-				points_array[(i + 8) % size],
-				points_array[(i + 11) % size]
-				);
+			float x = calculate_bspline_curve(t, t3, t2, points_array[(i + 0) % size],
+				points_array[(i + 3) % size], points_array[(i + 6) % size], points_array[(i + 9) % size]);
+			float y = calculate_bspline_curve(t, t3, t2, points_array[(i + 1) % size],
+				points_array[(i + 4) % size], points_array[(i + 7) % size], points_array[(i + 10) % size]);
+			float z = calculate_bspline_curve(t, t3, t2, points_array[(i + 2) % size],
+				points_array[(i + 5) % size], points_array[(i + 8) % size], points_array[(i + 11) % size]);
 
 			bspline_curve_array.push_back(x);
 			bspline_curve_array.push_back(y);
@@ -326,32 +311,28 @@ void bspline_inex() {
 		float Bc = bspline_curve_array[(i + 5) % size];
 
 		float w = Bx - Ax;
-		float h = By - Ay;
-		float a = atan(h / w);
+		float height = By - Ay;
+		float angle = atan(height / w);
 
-		float internalAngle, externalAngle;
-
+		float angleIn, angleEx;
 		if (w < 0) {
-			internalAngle = a + M_PI / 2;
-			externalAngle = a - M_PI / 2;
+			angleIn = angle + M_PI / 2;
+			angleEx = angle - M_PI / 2;
 		}
 		else {
-			internalAngle = a - M_PI / 2;
-			externalAngle = a + M_PI / 2;
+			angleIn = angle - M_PI / 2;
+			angleEx = angle + M_PI / 2;
 		}
-
-		float internalCx = cos(internalAngle) * curveDist + Ax;
-		float internalCy = sin(internalAngle) * curveDist + Ay;
-
-		bspline_internal_array.push_back(internalCx);
-		bspline_internal_array.push_back(internalCy);
+		float angleInEx = cos(angleIn) * curveDist + Ax;
+		bspline_internal_array.push_back(angleInEx);
+		angleInEx = sin(angleIn) * curveDist + Ay;
+		bspline_internal_array.push_back(angleInEx);
 		bspline_internal_array.push_back(Ac);
 
-		float externalCx = cos(externalAngle) * curveDist + Ax;
-		float externalCy = sin(externalAngle) * curveDist + Ay;
-
-		bspline_external_array.push_back(externalCx);
-		bspline_external_array.push_back(externalCy);
+		angleInEx = cos(angleEx) * curveDist + Ax;
+		bspline_external_array.push_back(angleInEx);
+		angleInEx = sin(angleEx) * curveDist + Ay;
+		bspline_external_array.push_back(angleInEx);
 		bspline_external_array.push_back(Ac);
 	}
 
@@ -370,21 +351,18 @@ void bspline_inex() {
 
 void create_object() {
 	bspline_curve();
-	float scaleG = 0.08f;
-	float scaleH = 0.08f;
 
-	ofstream curva("../PistaObjeto/pista_coords.txt");
+	ofstream coords("../PistaObjeto/coords.txt");
 	float temp = bspline_curve_array.size() / ((float)points_array.size() / 3);
 	for (int i = 0; i < bspline_curve_array.size() - temp; i += 3) {
-		curva << bspline_curve_array[i] * scaleG << " " << bspline_curve_array[i + 2] * scaleH << " " << bspline_curve_array[i + 1] * scaleG << endl;
+		coords << bspline_curve_array[i] << " " << bspline_curve_array[i + 2] << " " << bspline_curve_array[i + 1] << endl;
 	}
-	curva.close();
+	coords.close();
 
 	ofstream obj("../PistaObjeto/pista.obj");
 	obj << "mtllib " << "Objects/pista.mtl" << endl;
 	obj << "g " << "pista" << endl;
 	obj << "usemtl " << "pista" << endl;
-
 	obj << "vn 0.0 1.0 0.0" << endl;
 	obj << "vt 0.0 0.0" << endl;
 	obj << "vt 0.0 1.0" << endl;
@@ -394,31 +372,26 @@ void create_object() {
 	int size = bspline_internal_array.size();
 	int vertices_size = size / 3;
 	for (int i = 0; i < size; i += 3) {
-		obj << "v " << (bspline_internal_array[i] * scaleG) << " " << bspline_internal_array[i + 2] * scaleH << " " << (bspline_internal_array[i + 1] *
-			scaleG)
-			<< endl;
+		obj << "v " << (bspline_internal_array[i]) << " " << bspline_internal_array[i + 2] << " " << (bspline_internal_array[i + 1]) << endl;
 	}
 	for (int i = 0; i < size; i += 3) {
-		obj << "v " << (bspline_external_array[i] * scaleG) << " " << bspline_external_array[i + 2] * scaleH << " " << (bspline_external_array[i + 1] *
-			scaleG)
-			<< endl;
+		obj << "v " << (bspline_external_array[i]) << " " << bspline_external_array[i + 2] << " " << (bspline_external_array[i + 1]) << endl;
 	}
-	
+
 	for (int i = 1; i <= size / 3 - 3; i++) {
 		obj << "f " << i << "/1/1 " << (i + 1) << "/2/1 " << i + vertices_size << "/4/1" << endl;
 		obj << "f " << i + vertices_size << "/4/1 " << (i + 1) << "/2/1 " << i + 1 + vertices_size << "/3/1" << endl;
 	}
 	obj.close();
 
-	ofstream material("../PistaObjeto/pista.mtl");
-	material << "newmtl " << "pista" << endl;
-	material << "Ka 0.5 0.5 0.5" << endl;
-	material << "Kd 1.0 1.0 1.0" << endl;
-	material << "Ks 0.0 0.0 0.0" << endl;
-	material << "Ns 80.0" << endl;
-	material << "map_Kd " << "Objects/pista.jpg" << endl;
-	material.close();
-
+	ofstream mtl("../PistaObjeto/pista.mtl");
+	mtl << "newmtl " << "pista" << endl;
+	mtl << "Ka 0.5 0.5 0.5" << endl;
+	mtl << "Kd 1.0 1.0 1.0" << endl;
+	mtl << "Ks 0.0 0.0 0.0" << endl;
+	mtl << "Ns 80.0" << endl;
+	mtl << "map_Kd " << "Objects/pista.jpg" << endl;
+	mtl.close();
 }
 
 void check_collision(double posX, double posY) {

@@ -22,7 +22,6 @@
 #include "Time.h"
 #include "Mesh.h"
 #include "ObjReader.h"
-#include "ObjPoints.h"
 #include "Program.h"
 
 #define EXIT_FAILURE -1
@@ -40,7 +39,7 @@ int main() {
 	GLFWwindow* window = program.GLFWInit();
 	
 	// objects init
-	vector<vec3*> objPoints = ObjPoints::read("Objects/pista_coords.txt");
+	vector<vec3*> objPoints = ObjReader::readPoints("Objects/coords.txt");
 
 	// set up vertex data (and buffer(s)) and configure vertex attributes for cubes
 	float vertices[] = {

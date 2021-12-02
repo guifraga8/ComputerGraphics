@@ -21,11 +21,13 @@ public:
 
 	// Mtl
 	static void readMtl(Mesh* mesh, string filename);
-
 	static void id(Material* material, stringstream& sline);
 	static void ambient(Material* material, stringstream& sline);
 	static void diffuse(Material* material, stringstream& sline);
 	static void specular(Material* material, stringstream& sline);
 	static void shininess(Material* material, stringstream& sline);
 	static void textureMtl(Material* material, stringstream& sline);
+
+	// Coords
+	static vector<vec3*> ObjReader::readPoints(string filename);
 };

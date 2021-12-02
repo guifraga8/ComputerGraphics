@@ -129,7 +129,6 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="ObjPoints.cpp" />
     <ClCompile Include="ObjReader.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -141,7 +140,6 @@
     <ClInclude Include="Group.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
-    <ClInclude Include="ObjPoints.h" />
     <ClInclude Include="ObjReader.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="Shader.h" />
